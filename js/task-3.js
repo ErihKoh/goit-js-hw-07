@@ -20,7 +20,8 @@ const imagesListEl = document.querySelector("#gallery");
 
 const addImagesToGallery = (items) => {
   return items.map((item) => {
-    const imageItemEl = document.createElement("li");
+    imagesListEl.insertAdjacentHTML("afterbegin", "<li></li>");
+    const imageItemEl = document.querySelector("li");
     imageItemEl.classList.add("list");
     const imageEl = document.createElement("img");
     imageEl.src = item.url;
