@@ -20,14 +20,15 @@ const imagesListEl = document.querySelector("#gallery");
 
 const addImagesToGallery = (items) => {
   return items.map((item) => {
-    imagesListEl.insertAdjacentHTML("afterbegin", "<li></li>");
+    imagesListEl.insertAdjacentHTML("afterbegin", "<li><img></li>");
     const imageItemEl = document.querySelector("li");
+    const imageEl = document.querySelector("img");
     imageItemEl.classList.add("list");
-    const imageEl = document.createElement("img");
+    // const imageEl = document.createElement("img");
     imageEl.src = item.url;
     imageEl.alt = item.alt;
     imageEl.classList.add("img");
-    imageItemEl.appendChild(imageEl);
+    // imageItemEl.appendChild(imageEl);
     return imageItemEl;
   });
 };
