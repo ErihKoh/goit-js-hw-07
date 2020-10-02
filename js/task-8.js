@@ -15,26 +15,34 @@ function onInputValue(evt) {
 
 function onBtnCreat() {
   createBoxes(quantity);
-
-  console.log(document);
 }
 
 function onBtnDestroy() {
   boxesEl.innerHTML = "";
-  console.log(document);
+  document.querySelector("input").value = "";
 }
 
 function createBoxes(amount) {
+  const width = 30;
+  const higth = 30;
   for (let i = 1; i <= amount; i += 1) {
     const boxEl = document.createElement("div");
 
     boxesEl.appendChild(boxEl);
-    // boxEl.style.width = "30px";
-    // boxEl.style.height = "30px";
-    // boxEl.style.backgroundColor = "tomato";
-    // boxEl.style.marginBottom = "20px";
-    boxEl.classList.add("box");
+    boxEl.style.width = `${width + i * 10}px`;
+    boxEl.style.height = `${higth + i * 10}px`;
+    boxEl.style.backgroundColor = randomCollor();
+    boxEl.style.marginBottom = "20px";
+    boxEl.style.marginTop = "20px";
+    // boxEl.classList.add("box");
   }
 
   return boxesEl;
+}
+
+function randomCollor() {
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
 }
